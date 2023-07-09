@@ -1,7 +1,29 @@
 return {
     "nvim-lualine/lualine.nvim",
     opts = {
-        options = { disabled_filetypes = { statusline = { 'neo-tree' } } }
+        options = {
+            -- disabled_filetypes = { statusline = { 'neo-tree' } },
+            disabled_filetypes = {
+                statusline = {},
+                winbar = {},
+            },
+            always_divide_middle = false,
+            globalstatus = true,
+            -- ignore_focus = { 'neo-tree', 'file_status' },
+            tabline = {},
+            winbar = {},
+            inactive_winbar = {},
+            extensions = {}
+        },
+        sections = {
+            lualine_a = {
+                {
+                    'filename',
+                    file_status = true,     -- displays file status (readonly status, modified status)
+                    path = 2                -- 0 = just filename, 1 = relative path, 2 = absolute path
+                }
+            }
+        },
 
     }
 }

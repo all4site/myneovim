@@ -1,0 +1,61 @@
+{
+  "nfc": {
+    "prefix": "nfc",
+    "body": ["const $1 = () => {", "$2", "}"],
+    "description": "Arrow function"
+  },
+
+  "edf": {
+    "prefix": "edf",
+    "body": ["export default function $1() {", "$2", "}"],
+    "description": "Export default function 111"
+  },
+
+  "form": {
+    "prefix": "form",
+    "body": [
+      "const {",
+      "register,",
+      "getValues,",
+      "formState: { errors },",
+      "} = useForm({",
+      "defaultValues:{},})"
+    ],
+    "description": "Form"
+  },
+  "getData": {
+    "prefix": "getData",
+    "body": [
+      "const getData = async () => {",
+      "try {",
+      "const { data } = await instance.get('/blocks/get-in-touch')",
+      "return data",
+      "} catch (e) {",
+      "console.error(e)",
+      "return {}",
+      "}",
+      "}"
+    ],
+    "description": "Get data"
+  },
+  "tb": {
+    "prefix": "tb",
+    "body": ["<TableBlock title='$1'>", "$2", "</TableBlock>"],
+    "description": "Table"
+  },
+  "bb": {
+    "prefix": "bb",
+    "body": ["<ButtonBlock title='$1'>", "$2", "</ButtonBlock>"],
+    "description": "Button"
+  },
+  "route": {
+    "prefix": "route",
+    "body": ["const router = useRouter()", "const pathname = usePathname()"],
+    "description": "Router"
+  },
+  "aspect": {
+    "prefix": "aspect",
+    "body": ["aspect-[$1/$2]"],
+    "description": "Aspect"
+  }
+}

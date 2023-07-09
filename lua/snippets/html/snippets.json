@@ -1,0 +1,11 @@
+{
+  "table": {
+    "prefix": "table",
+    "body": [
+			"<TableBlock title='$1'>",
+			"$2"
+			"</TableBlock>"
+    ],
+    "description": "Table"
+  },
+}

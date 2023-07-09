@@ -7,55 +7,56 @@ function switchNeotree()
     end
 end
 
-
 -- NeoTree
-vim.keymap.set('n', '<leader>e', ':Neotree focus toggle<CR>')
-vim.keymap.set('n', '<leader>o', switchNeotree)
+vim.keymap.set('n', '<leader>e', ':Neotree focus toggle<CR>', { desc = 'Neotree focus' })
+vim.keymap.set('n', '<leader>o', switchNeotree, { desc = 'Switch neotree focus' })
+
+-- Comment
+vim.keymap.set('n', '<leader>/', function()
+    require("Comment.api").toggle.linewise.count(
+        vim.v.count > 0 and vim.v.count or 1)
+end, { desc = 'Comment line' })
+vim.keymap.set('v', '<leader>/',
+    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = 'Comment multiple line' })
 
 -- Navigation
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
-vim.keymap.set('n', '<leader>/', function()
-    require("Comment.api").toggle.linewise.count(
-        vim.v.count > 0 and vim.v.count or 1)
-end)
-vim.keymap.set('v', '<leader>/',
-    "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
 
 -- Splits
 vim.keymap.set('n', '|', ':vsplit<CR>')
 vim.keymap.set('n', '\\', ':split<CR>')
 
 -- Other
-vim.keymap.set('n', '<leader>w', ':w<CR>')
-vim.keymap.set('n', '<leader>q', ':q|q<CR>')
-vim.keymap.set('n', '<leader>c', ':bp|sp|bn|bd<CR>')
+vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Write file' })
+vim.keymap.set('n', '<leader>q', ':q|q<CR>', { desc = 'Quit' })
+vim.keymap.set('n', '<leader>c', ':bp|sp|bn|bd<CR>', { desc = 'Buffer close' })
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+vim.keymap.set('n', '<esc>', ':nohlsearch<CR>', { desc = 'No highlight' })
 
 -- Tabs
 vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
 
 -- Terminal
-vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=float<CR>')
-vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>')
-vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=40<CR>')
+vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'ToggleTerm' })
+vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>', { desc = 'ToggleTerm horizontal' })
+vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=40<CR>', { desc = 'ToggleTerm vertical' })
 
 -- Telescope
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-vim.keymap.set('n', '<leader>fw', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fw', '<cmd>Telescope live_grep<cr>', { desc = 'Find word' })
 
 -- Lazygit
-vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>')
+vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'Lazygit' })
 
 --Lsp
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+-- vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
@@ -95,4 +96,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end)
     end,
 })
-
