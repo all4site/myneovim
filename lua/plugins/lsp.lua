@@ -4,11 +4,22 @@ return {
     'neovim/nvim-lspconfig',
     config = function()
         local lspconfig = require("lspconfig")
-        lspconfig.tsserver.setup({})
-        lspconfig.lua_ls.setup({})
         lspconfig.cssls.setup({
             filetypes = { "css", "scss", "sass" },
             capabilities = capabilities
+        })
+        lspconfig.tailwindcss.setup({
+            settings = {
+                tailwindCSS = {
+                    classAttributes = {
+                        "class",
+                        "className",
+                        "ngClass",
+                        "style",
+                        "classWrapper"
+                    }
+                }
+            }
         })
     end
 }
