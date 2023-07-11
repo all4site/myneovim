@@ -9,7 +9,7 @@ end
 
 
 -- Buffer
-vim.keymap.set("n", "<leader>bc", ":bp|sp|bn|bd<CR>", { desc = 'Buffer close' })
+vim.keymap.set("n", "<leader>c", ":bp|sp|bn|bd<CR>", { desc = 'Buffer close' })
 vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<leader>bl', ':BufferLinePick<CR>')
@@ -55,6 +55,9 @@ vim.keymap.set('n', '<leader>fw', '<cmd>Telescope live_grep<cr>', { desc = 'Find
 
 -- Lazygit
 vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'Lazygit' })
+
+-- Hop
+vim.keymap.set('n', '<leader>h', '<cmd>HopWord<cr>', { desc = 'Hop word' })
 
 --Lsp
 -- Global mappings.
