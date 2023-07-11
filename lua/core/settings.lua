@@ -4,7 +4,10 @@ vim.wo.relativenumber = true
 vim.g.did_load_filetypes = 1
 vim.g.formatoptions = "qrn1"
 vim.opt.showmode = false
-vim.opt.updatetime = 100
+vim.opt.updatetime = 300
+vim.o.timeout = true
+vim.o.timeoutlen = 500
+
 vim.wo.signcolumn = "yes"
 vim.opt.scrolloff = 8
 vim.opt.wrap = false

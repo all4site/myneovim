@@ -7,6 +7,14 @@ function switchNeotree()
     end
 end
 
+
+-- Buffer
+vim.keymap.set("n", "<leader>bc", ":bp|sp|bn|bd<CR>", { desc = 'Buffer close' })
+vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<leader>bl', ':BufferLinePick<CR>')
+vim.keymap.set('n', '<leader>bd', ':BufferLinePickClose<CR>', { desc = 'Buffer pick close' })
+
 -- NeoTree
 vim.keymap.set('n', '<leader>e', ':Neotree focus toggle<CR>', { desc = 'Neotree focus' })
 vim.keymap.set('n', '<leader>o', switchNeotree, { desc = 'Switch neotree focus' })
@@ -32,14 +40,9 @@ vim.keymap.set('n', '\\', ':split<CR>')
 -- Other
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Write file' })
 vim.keymap.set('n', '<leader>q', ':q|q<CR>', { desc = 'Quit' })
-vim.keymap.set('n', '<leader>c', ':bp|sp|bn|bd<CR>', { desc = 'Buffer close' })
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<esc>', ':nohlsearch<CR>', { desc = 'No highlight' })
-
--- Tabs
-vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>')
-vim.keymap.set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
 
 -- Terminal
 vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'ToggleTerm' })
@@ -84,15 +87,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- vim.keymap.set('n', '<leader>wl', function()
         -- print(vim.inspect(vim.lsp.buf.list_workleader_folders()))
         -- end, opts)
-        vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+        -- vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+        -- vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "<leader>f", function()
+        vim.keymap.set("n", "<leader>lf", function()
             vim.lsp.buf.format()
-        end, opts)
+        end, { desc = 'Format file' })
         vim.keymap.set("n", "<leader>la", function()
             vim.lsp.buf.code_action()
-        end)
+        end, { desc = 'Code action' })
     end,
 })

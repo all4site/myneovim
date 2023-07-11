@@ -23,6 +23,12 @@ return {
                 },
                 t = {
                     name = 'Terminal',
+                },
+                l = {
+                    name = 'Lsp',
+                },
+                b = {
+                    name = 'Buffer',
                 }
             }
         }
