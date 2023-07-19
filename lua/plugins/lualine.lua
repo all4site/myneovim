@@ -24,10 +24,10 @@ return {
                 },
 
             },
-            lualine_z = {
-                "datetime",
-                'location'
-            }
+        --     lualine_z = {
+        --         "datetime",
+        --         'location'
+        --     }
         },
 
     }
