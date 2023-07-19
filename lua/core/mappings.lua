@@ -7,11 +7,11 @@ function switchNeotree()
     end
 end
 
-
 -- Buffer
 vim.keymap.set("n", "<leader>c", ":bp|sp|bn|bd<CR>", { desc = 'Buffer close' })
 vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>')
 vim.keymap.set('n', '<s-Tab>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set("n", "<leader>bc", ":bd<CR>", { desc = 'Current buffer close' })
 vim.keymap.set('n', '<leader>bl', ':BufferLinePick<CR>')
 vim.keymap.set('n', '<leader>bd', ':BufferLinePickClose<CR>', { desc = 'Buffer pick close' })
 vim.keymap.set('n', '<leader>ba', ':w|%bd|e#|bd#|NeoTreeShow<CR>', { desc = 'Buffer close all except current' })
